@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//test
+
 struct ContentView: View {
     @State private var viewModel = WatchViewModel()
     
