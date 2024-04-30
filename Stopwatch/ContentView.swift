@@ -24,58 +24,30 @@ struct ContentView: View {
         .tabViewStyle(.page)
         
         HStack {
-            if viewModel.isTimerRunning {
-                Button {
-                    viewModel.addLap()
-                } label: {
-                    ZStack {
-                        Circle()
-                            .frame(width: 80)
-                            .foregroundStyle(.gray.opacity(0.3))
-                        Text("Lap")
-                            .foregroundStyle(.white)
-                    }
+            Button {
+                viewModel.isTimerRunning ? viewModel.addLap() : viewModel.resetTimer()
+            } label: {
+                ZStack {
+                    Circle()
+                        .frame(width: 80)
+                        .foregroundStyle(.gray.opacity(0.3))
+                    Text(viewModel.isTimerRunning ? "Lap" : "Reset")
+                        .foregroundStyle(viewModel.isTimerRunning ? .white : (viewModel.elapsedTime == 0 ? .white.opacity(0.2) : .white))
                 }
-            } else {
-                Button {
-                    viewModel.resetTimer()
-                } label: {
-                    ZStack {
-                        Circle()
-                            .frame(width: 80)
-                            .foregroundStyle(.gray.opacity(0.3))
-                        Text("Reset")
-                            .foregroundStyle(viewModel.elapsedTime == 0 ? .white.opacity(0.2) : .white)
-                    }
-                }
-                .disabled(viewModel.elapsedTime == 0)
             }
+            .disabled(viewModel.elapsedTime == 0)
             
             Spacer()
             
-            if viewModel.isTimerRunning {
-                Button {
-                    viewModel.stopTimer()
-                } label: {
-                    ZStack {
-                        Circle()
-                            .frame(width: 80)
-                            .foregroundStyle(.red.opacity(0.3))
-                        Text("Stop")
-                            .foregroundStyle(.red)
-                    }
-                }
-            } else {
-                Button {
-                    viewModel.startTimer()
-                } label: {
-                    ZStack {
-                        Circle()
-                            .frame(width: 80)
-                            .foregroundStyle(.green.opacity(0.3))
-                        Text("Start")
-                            .foregroundStyle(.green)
-                    }
+            Button {
+                viewModel.isTimerRunning ? viewModel.stopTimer() : viewModel.startTimer()
+            } label: {
+                ZStack {
+                    Circle()
+                        .frame(width: 80)
+                        .foregroundStyle(viewModel.isTimerRunning ? .red.opacity(0.3) : .green.opacity(0.3))
+                    Text(viewModel.isTimerRunning ? "Stop" : "Start")
+                        .foregroundStyle(viewModel.isTimerRunning ? .red : .green)
                 }
             }
         }
