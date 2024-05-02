@@ -21,6 +21,7 @@ struct LapView: View {
         }
         .font(.headline)
         .padding(5)
+        .monospacedDigit()
     }
 }
 

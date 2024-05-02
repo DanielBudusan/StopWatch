@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C1E503C2BE0DB6700BEAF2D /* DigitalWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1E503B2BE0DB6700BEAF2D /* DigitalWatchView.swift */; };
 		9C1E503E2BE0DB8300BEAF2D /* WatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1E503D2BE0DB8300BEAF2D /* WatchViewModel.swift */; };
 		9C3DF3A42BE1311E0032366F /* AnalogWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3DF3A32BE1311E0032366F /* AnalogWatchView.swift */; };
 		9C43FD2C2BDAFEE2002A429B /* StopwatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C43FD2B2BDAFEE2002A429B /* StopwatchApp.swift */; };
@@ -20,7 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9C1E503B2BE0DB6700BEAF2D /* DigitalWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalWatchView.swift; sourceTree = "<group>"; };
 		9C1E503D2BE0DB8300BEAF2D /* WatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchViewModel.swift; sourceTree = "<group>"; };
 		9C3DF3A32BE1311E0032366F /* AnalogWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogWatchView.swift; sourceTree = "<group>"; };
 		9C43FD282BDAFEE2002A429B /* Stopwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stopwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,7 +67,6 @@
 				9CAE33AE2BE39070005F08CE /* LapView.swift */,
 				9C1E503D2BE0DB8300BEAF2D /* WatchViewModel.swift */,
 				9C4D82CF2BE3A17400B2F108 /* Watch.swift */,
-				9C1E503B2BE0DB6700BEAF2D /* DigitalWatchView.swift */,
 				9C3DF3A32BE1311E0032366F /* AnalogWatchView.swift */,
 				9C43FD2F2BDAFEE3002A429B /* Assets.xcassets */,
 				9C43FD312BDAFEE3002A429B /* Preview Content */,
@@ -156,7 +153,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CAE33AF2BE39070005F08CE /* LapView.swift in Sources */,
-				9C1E503C2BE0DB6700BEAF2D /* DigitalWatchView.swift in Sources */,
 				9C3DF3A42BE1311E0032366F /* AnalogWatchView.swift in Sources */,
 				9C1E503E2BE0DB8300BEAF2D /* WatchViewModel.swift in Sources */,
 				9C43FD2E2BDAFEE2002A429B /* ContentView.swift in Sources */,

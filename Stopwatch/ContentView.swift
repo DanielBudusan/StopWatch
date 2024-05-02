@@ -12,7 +12,12 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            DigitalWatchView(time: viewModel.timeString(time: viewModel.watch.elapsedTime))
+            HStack {
+                Text(viewModel.timeString(time: viewModel.watch.elapsedTime))
+                    .font(.system(size: 90))
+                    .fontWeight(.thin)
+                    .monospacedDigit()
+            }
             
             AnalogWatchView(time: viewModel.watch.elapsedTime, lapTime: viewModel.watch.currentLap.time)
         }

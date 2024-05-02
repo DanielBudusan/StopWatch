@@ -49,4 +49,24 @@ class WatchViewModel {
         return String(format: "%02d:%02d,%02d", minutes, seconds, miliseconds)
     }
     
+    func timeString1(time: TimeInterval) -> String {
+        let minutes = Int(time) / 60
+        let seconds = Int(time) % 60
+        let miliseconds = Int(time.truncatingRemainder(dividingBy: 1) * 100)
+        return String(format: "%02d:", minutes)
+    }
+    
+    func timeString2(time: TimeInterval) -> String {
+        let minutes = Int(time) / 60
+        let seconds = Int(time) % 60
+        let miliseconds = Int(time.truncatingRemainder(dividingBy: 1) * 100)
+        return String(format: "%02d,", seconds)
+    }
+    
+    func timeString3(time: TimeInterval) -> String {
+        let minutes = Int(time) / 60
+        let seconds = Int(time) % 60
+        let miliseconds = Int(time.truncatingRemainder(dividingBy: 1) * 100)
+        return String(format: "%02d", miliseconds)
+    }
 }
