@@ -17,13 +17,6 @@ struct Watch: Identifiable {
     var slowestLap: Lap
     var fastestLap: Lap
     
-//    var timeString: String {
-//        let minutes = Int(elapsedTime) / 60
-//        let seconds = Int(elapsedTime) % 60
-//        let miliseconds = Int(elapsedTime.truncatingRemainder(dividingBy: 1) * 100)
-//        return String(format: "%02d:%02d,%02d", minutes, seconds, miliseconds)
-//    }
-    
     init() {
         self.slowestLap = currentLap
         self.fastestLap = currentLap
