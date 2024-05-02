@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LapView: View {
     var index: Int
-    var lap: Lap
+    var lapTime: String
     
     var body: some View {
         Divider()
@@ -17,7 +17,7 @@ struct LapView: View {
         HStack {
             Text("Lap " + "\(index + 1)")
             Spacer()
-            Text(lap.timeString)
+            Text(lapTime)
         }
         .font(.headline)
         .padding(5)
@@ -25,5 +25,5 @@ struct LapView: View {
 }
 
 #Preview {
-    LapView(index: 3, lap: Lap(time: 23))
+    LapView(index: 3, lapTime: "12:12,12")
 }

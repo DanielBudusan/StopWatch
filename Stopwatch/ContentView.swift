@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            DigitalWatchView(time: viewModel.watch.timeString)
+            DigitalWatchView(time: viewModel.timeString(time: viewModel.watch.elapsedTime))
             
             AnalogWatchView(time: viewModel.watch.elapsedTime, lapTime: viewModel.watch.currentLap.time)
         }
@@ -54,11 +54,11 @@ struct ContentView: View {
         
         ScrollView {
             if viewModel.watch.elapsedTime > 0 {
-                LapView(index: viewModel.watch.laps.indices.count, lap: viewModel.watch.currentLap)
+                LapView(index: viewModel.watch.laps.indices.count, lapTime: viewModel.timeString(time: viewModel.watch.currentLap.time))
             }
             
             ForEach(viewModel.watch.laps.indices.reversed(), id: \.self) { index in
-                LapView(index: index, lap: viewModel.watch.laps[index])
+                LapView(index: index, lapTime: viewModel.timeString(time: viewModel.watch.laps[index].time))
                     .foregroundColor(viewModel.watch.laps[index] == viewModel.watch.fastestLap ? .green : (viewModel.watch.laps[index] == viewModel.watch.slowestLap ? .red : .primary))
             }
         }

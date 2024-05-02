@@ -42,7 +42,7 @@ class WatchViewModel {
         watch.fastestLap = watch.laps.min() ?? Lap(time: 0)
     }
     
-    func timerString(time: TimeInterval) -> String {
+    func timeString(time: TimeInterval) -> String {
         let minutes = Int(time) / 60
         let seconds = Int(time) % 60
         let miliseconds = Int(time.truncatingRemainder(dividingBy: 1) * 100)
