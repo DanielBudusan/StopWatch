@@ -17,6 +17,7 @@ struct DigitalWatchView: View {
                 .font(.system(size: 90))
                 .fontWeight(.thin)      
         }
+        .frame(width: 350, alignment: .leading)
     }
 }
 

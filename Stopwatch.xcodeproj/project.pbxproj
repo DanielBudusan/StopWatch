@@ -14,6 +14,9 @@
 		9C43FD2E2BDAFEE2002A429B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C43FD2D2BDAFEE2002A429B /* ContentView.swift */; };
 		9C43FD302BDAFEE3002A429B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C43FD2F2BDAFEE3002A429B /* Assets.xcassets */; };
 		9C43FD332BDAFEE3002A429B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C43FD322BDAFEE3002A429B /* Preview Assets.xcassets */; };
+		9C4D82D02BE3A17400B2F108 /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D82CF2BE3A17400B2F108 /* Watch.swift */; };
+		9CAE33AF2BE39070005F08CE /* LapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE33AE2BE39070005F08CE /* LapView.swift */; };
+		9CAE33B12BE396FE005F08CE /* Lap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE33B02BE396FE005F08CE /* Lap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		9C43FD2D2BDAFEE2002A429B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9C43FD2F2BDAFEE3002A429B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C43FD322BDAFEE3002A429B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9C4D82CF2BE3A17400B2F108 /* Watch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch.swift; sourceTree = "<group>"; };
+		9CAE33AE2BE39070005F08CE /* LapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapView.swift; sourceTree = "<group>"; };
+		9CAE33B02BE396FE005F08CE /* Lap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +65,10 @@
 			children = (
 				9C43FD2B2BDAFEE2002A429B /* StopwatchApp.swift */,
 				9C43FD2D2BDAFEE2002A429B /* ContentView.swift */,
+				9CAE33B02BE396FE005F08CE /* Lap.swift */,
+				9CAE33AE2BE39070005F08CE /* LapView.swift */,
 				9C1E503D2BE0DB8300BEAF2D /* WatchViewModel.swift */,
+				9C4D82CF2BE3A17400B2F108 /* Watch.swift */,
 				9C1E503B2BE0DB6700BEAF2D /* DigitalWatchView.swift */,
 				9C3DF3A32BE1311E0032366F /* AnalogWatchView.swift */,
 				9C43FD2F2BDAFEE3002A429B /* Assets.xcassets */,
@@ -146,11 +155,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CAE33AF2BE39070005F08CE /* LapView.swift in Sources */,
 				9C1E503C2BE0DB6700BEAF2D /* DigitalWatchView.swift in Sources */,
 				9C3DF3A42BE1311E0032366F /* AnalogWatchView.swift in Sources */,
 				9C1E503E2BE0DB8300BEAF2D /* WatchViewModel.swift in Sources */,
 				9C43FD2E2BDAFEE2002A429B /* ContentView.swift in Sources */,
+				9C4D82D02BE3A17400B2F108 /* Watch.swift in Sources */,
 				9C43FD2C2BDAFEE2002A429B /* StopwatchApp.swift in Sources */,
+				9CAE33B12BE396FE005F08CE /* Lap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

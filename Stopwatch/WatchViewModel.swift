@@ -9,35 +9,37 @@ import SwiftUI
 
 @Observable
 class WatchViewModel {
-    var isTimerRunning = false
-    var elapsedTime: TimeInterval = 0
-    var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
-    var laps: [TimeInterval] = []
-    var lap: TimeInterval = 0
+    var watch: Watch
+    
+    init(watch: Watch = Watch()) {
+        self.watch = watch
+    }
     
     func stopTimer() {
-        isTimerRunning = false
+        watch.isTimerRunning = false
     }
     
     func startTimer() {
-        isTimerRunning = true
+        watch.isTimerRunning = true
     }
     
     func resetTimer() {
-        isTimerRunning = false
-        elapsedTime = 0
-        laps.removeAll()
-        lap = 0
+        watch.isTimerRunning = false
+        watch.elapsedTime = 0
+        watch.laps.removeAll()
+        watch.currentLap = Lap(time: 0)
     }
     
     func addLap() {
-        laps.append(lap)
-        lap = 0
+        watch.laps.append(watch.currentLap)
+        watch.currentLap = Lap(time: 0)
     }
     
     func updateTime() {
-        elapsedTime += 0.01
-        lap += 0.01
+        watch.elapsedTime += 0.01
+        watch.currentLap.time += 0.01
+        watch.slowestLap = watch.laps.max() ?? Lap(time: 0)
+        watch.fastestLap = watch.laps.min() ?? Lap(time: 0)
     }
     
     func timerString(time: TimeInterval) -> String {

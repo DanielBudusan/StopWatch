@@ -12,12 +12,12 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            DigitalWatchView(time: viewModel.timerString(time: viewModel.elapsedTime))
+            DigitalWatchView(time: viewModel.watch.timeString)
             
-            AnalogWatchView(time: viewModel.elapsedTime, lapTime: viewModel.lap)
+            AnalogWatchView(time: viewModel.watch.elapsedTime, lapTime: viewModel.watch.currentLap.time)
         }
-        .onReceive(viewModel.timer) { _ in
-            if viewModel.isTimerRunning {
+        .onReceive(viewModel.watch.timer) { _ in
+            if viewModel.watch.isTimerRunning {
                 viewModel.updateTime()
             }
         }
@@ -25,57 +25,41 @@ struct ContentView: View {
         
         HStack {
             Button {
-                viewModel.isTimerRunning ? viewModel.addLap() : viewModel.resetTimer()
+                viewModel.watch.isTimerRunning ? viewModel.addLap() : viewModel.resetTimer()
             } label: {
                 ZStack {
                     Circle()
                         .frame(width: 80)
                         .foregroundStyle(.gray.opacity(0.3))
-                    Text(viewModel.isTimerRunning ? "Lap" : "Reset")
-                        .foregroundStyle(viewModel.isTimerRunning ? .white : (viewModel.elapsedTime == 0 ? .white.opacity(0.2) : .white))
+                    Text(viewModel.watch.isTimerRunning ? "Lap" : "Reset")
+                        .foregroundStyle(viewModel.watch.isTimerRunning ? .white : (viewModel.watch.elapsedTime == 0 ? .white.opacity(0.2) : .white))
                 }
             }
-            .disabled(viewModel.elapsedTime == 0)
+            .disabled(viewModel.watch.elapsedTime == 0)
             
             Spacer()
             
             Button {
-                viewModel.isTimerRunning ? viewModel.stopTimer() : viewModel.startTimer()
+                viewModel.watch.isTimerRunning ? viewModel.stopTimer() : viewModel.startTimer()
             } label: {
                 ZStack {
                     Circle()
                         .frame(width: 80)
-                        .foregroundStyle(viewModel.isTimerRunning ? .red.opacity(0.3) : .green.opacity(0.3))
-                    Text(viewModel.isTimerRunning ? "Stop" : "Start")
-                        .foregroundStyle(viewModel.isTimerRunning ? .red : .green)
+                        .foregroundStyle(viewModel.watch.isTimerRunning ? .red.opacity(0.3) : .green.opacity(0.3))
+                    Text(viewModel.watch.isTimerRunning ? "Stop" : "Start")
+                        .foregroundStyle(viewModel.watch.isTimerRunning ? .red : .green)
                 }
             }
         }
         
         ScrollView {
-            if viewModel.lap > 0 {
-                Divider()
-                    .overlay(Color.gray.opacity(0.7))
-                HStack {
-                    Text("Lap " + "\(viewModel.laps.indices.count + 1)")
-                    Spacer()
-                    Text(viewModel.timerString(time: viewModel.lap))
-                }
-                .font(.headline)
-                .padding([.leading, .trailing, .top], 5)
+            if viewModel.watch.elapsedTime > 0 {
+                LapView(index: viewModel.watch.laps.indices.count, lap: viewModel.watch.currentLap)
             }
             
-            ForEach(viewModel.laps.indices.reversed(), id: \.self) { index in
-                Divider()
-                    .overlay(Color.gray.opacity(0.7))
-                HStack {
-                    Text("Lap " + "\(index + 1)")
-                    Spacer()
-                    Text(viewModel.timerString(time: viewModel.laps[index]))
-                }
-                .font(.headline)
-                .padding(5)
-                .foregroundColor(viewModel.laps[index] == viewModel.laps.min() ? .green : (viewModel.laps[index] == viewModel.laps.max() ? .red : .primary))
+            ForEach(viewModel.watch.laps.indices.reversed(), id: \.self) { index in
+                LapView(index: index, lap: viewModel.watch.laps[index])
+                    .foregroundColor(viewModel.watch.laps[index] == viewModel.watch.fastestLap ? .green : (viewModel.watch.laps[index] == viewModel.watch.slowestLap ? .red : .primary))
             }
         }
         .padding(.top, 10)
